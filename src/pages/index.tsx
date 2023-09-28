@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 import { useEffect, useState } from 'react'
 import { BiconomySmartAccountV2 } from '@biconomy/account'
 import dynamic from 'next/dynamic'
-const Connect = dynamic(() => import("../components/Connect"), {
+const Connect = dynamic(() => import("@/components/Connect"), {
   ssr: false,
   });
 

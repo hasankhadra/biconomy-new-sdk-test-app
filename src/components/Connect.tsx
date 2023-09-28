@@ -23,7 +23,7 @@ const paymaster: IPaymaster = new BiconomyPaymaster({
 const contractAddress = '0x8c60aa2d7b5fc485a1b32864007f7ccce702e87a'
 
 const privateProvider = new ethers.providers.JsonRpcProvider("https://polygon-mumbai.g.alchemy.com/v2/KHlxZV00WOk1VL949f4Okm2Xw7B3CPyv")  // or any other rpc provider link
-const privateSigner = new ethers.Wallet("PRIVATE_KEY_HERE", privateProvider);
+const privateSigner = new ethers.Wallet("65df39b0c4f8756c830d91cdbb9e316c8122d0994b5c0283a1c61770c8c62cd1", privateProvider);
 
 function Connect(
   // props: {setSmartAccount: (biconomySmartAccount: BiconomySmartAccountV2) => void}
