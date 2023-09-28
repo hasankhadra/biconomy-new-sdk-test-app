@@ -3,10 +3,13 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
-import Connect from '@/components/Connect'
+// import Connect from '@/components/Connect'
 import { useEffect, useState } from 'react'
 import { BiconomySmartAccountV2 } from '@biconomy/account'
-
+import dynamic from 'next/dynamic'
+const Connect = dynamic(() => import("../components/Connect"), {
+  ssr: false,
+  });
 
 export default function Home() { 
 
