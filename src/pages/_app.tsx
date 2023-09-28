@@ -1,12 +1,19 @@
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
-import { WagmiConfig, createClient } from 'wagmi'
-import { polygonMumbai } from 'wagmi/chains'
+import { WagmiConfig, configureChains, createClient } from 'wagmi'
+import { polygonMumbai, mainnet, polygon } from 'wagmi/chains'
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
-import { getDefaultProvider } from 'ethers'
+import { publicProvider } from 'wagmi/providers/public'
  
-const connector = new MetaMaskConnector({
-  chains: [polygonMumbai],
+const chains = [polygonMumbai]
+
+const { provider } = configureChains(
+  chains,
+  [publicProvider()],
+)
+
+const metamaskConnector = new MetaMaskConnector({
+  chains,
   options: {
     shimDisconnect: true,
   },
@@ -14,8 +21,10 @@ const connector = new MetaMaskConnector({
  
 const client = createClient({
   autoConnect: true,
-  provider: getDefaultProvider(),
-  connectors: [connector]
+  provider,
+  connectors: [
+    metamaskConnector
+  ]
 })
  
 export default function App({ Component, pageProps }: AppProps) {
