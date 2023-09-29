@@ -4,13 +4,13 @@ import { IHybridPaymaster, SponsorUserOperationDto, PaymasterMode } from '@bicon
 import { abi, contractAddress } from '../constants/ContractConfig';
 import { useState } from 'react';
 
-function SendTransaction(
+function SendGaslessTransaction(
     props: {
         smartAccount: BiconomySmartAccountV2 | null,
     }
 ) {
 
-    const [userValue, setUserValue] = useState<number>()
+    const [userValue, setUserValue] = useState<number>(0)
 
     const setValue = async () => {
 
@@ -83,7 +83,7 @@ function SendTransaction(
 
     return (
         <div>
-            <button onClick={setValue} disabled={!(!!props.smartAccount && userValue)}> Set Value </button>
+            <button onClick={setValue} disabled={!(!!props.smartAccount && userValue)}> Set Value (Gasless) </button>
             {' '}
             <label>Number</label>
             {' '}
@@ -96,4 +96,4 @@ function SendTransaction(
     )
 }
 
-export default SendTransaction;
+export default SendGaslessTransaction;

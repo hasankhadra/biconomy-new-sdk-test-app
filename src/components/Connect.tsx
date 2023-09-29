@@ -51,7 +51,7 @@ function Connect(
         isConnected && 
         <div>
           <div>Connected to {activeConnector?.name ?? 'undefined'}</div>
-          <button onClick={biconomyConnect} disabled={!(!!wagmiSigner)}> Create Smart Account </button>
+          <button onClick={biconomyConnect} disabled={!(!!wagmiSigner)}> Create/Update Smart Account </button>
         </div>
       }
 
